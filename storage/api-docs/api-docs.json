@@ -145,7 +145,7 @@
                 "tags": [
                     "problems"
                 ],
-                "summary": "First problem",
+                "summary": "Second problem",
                 "description": "Second problem",
                 "operationId": "f6533d92673a8f8118edc3db93db341d",
                 "parameters": [
@@ -167,6 +167,49 @@
                         "schema": {
                             "type": "integer",
                             "format": "int64"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns a user token"
+                    },
+                    "422": {
+                        "description": "Validation error/missing parameters",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The provided parameters are incorrect."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/problems/third/{str}": {
+            "get": {
+                "tags": [
+                    "problems"
+                ],
+                "summary": "Third problem",
+                "description": "Third problem",
+                "operationId": "5db98e73e024c6a1021a544b9de581f8",
+                "parameters": [
+                    {
+                        "name": "str",
+                        "in": "path",
+                        "description": "start integer",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "BFG"
                         }
                     }
                 ],

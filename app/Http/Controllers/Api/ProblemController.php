@@ -89,7 +89,7 @@ class ProblemController extends Controller
      * @OA\Get(
      *     path="/problems/second/{start}/{end}",
      *     tags={"problems"},
-     *     summary="First problem",
+     *     summary="Second problem",
      *     @OA\Parameter(
      *         name="start",
      *         in="path",
@@ -134,8 +134,8 @@ class ProblemController extends Controller
     {
 
         $counter = 0;
-        for ($i = $first; $i<$second+1; $i++){
-            if (!(str_contains("$i", "5"))){
+        for ($i = $first; $i < $second + 1; $i++) {
+            if (!(str_contains("$i", "5"))) {
                 $counter++;
             }
         }
@@ -143,6 +143,55 @@ class ProblemController extends Controller
 
     }
 
+    /**
+     * Third problem
+     * @OA\Get(
+     *     path="/problems/third/{str}",
+     *     tags={"problems"},
+     *     summary="Third problem",
+     *     @OA\Parameter(
+     *         name="str",
+     *         in="path",
+     *         description="start integer",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="string",
+     *             example="BFG"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Returns a user token",
+     *     ),
+     *
+     *
+     *     @OA\Response(
+     *         response=422,
+     *         description="Validation error/missing parameters",
+     *     @OA\JsonContent(
+     *          @OA\Property(property="message", type="string",example="The provided parameters are incorrect."),
+     *     )
+     *     ),
+     *
+     * )
+     * @param Request $request
+     * @param String $str
+     * @return int
+     */
+    public function third(Request $request, String $str)
+    {
+
+        $sum = 0;
+        $chars = str_split($str);
+        for ($i = 0; $i < count($chars); $i++) {
+            //using ascii value of individual letters to get its index
+            $charIndex = ord(strtoupper($chars[$i])) - ord('A') + 1;
+
+            //adding that letter's index based on its order in the string
+            $sum = $sum * 26 + $charIndex;
+        }
+        return $sum;
+    }
 
 
 }
