@@ -119,36 +119,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "Returns a user token",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "token": {
-                                            "type": "string",
-                                            "example": "The provided credentials are incorrect."
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Returns a error message",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "The provided credentials are incorrect."
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
+                        "description": "Returns the smallest missing integer"
                     },
                     "422": {
                         "description": "Validation error/missing parameters",
@@ -166,12 +137,60 @@
                             }
                         }
                     }
-                },
-                "security": [
+                }
+            }
+        },
+        "/problems/second/{start}/{end}": {
+            "get": {
+                "tags": [
+                    "problems"
+                ],
+                "summary": "First problem",
+                "description": "Second problem",
+                "operationId": "f6533d92673a8f8118edc3db93db341d",
+                "parameters": [
                     {
-                        "sanctum": []
+                        "name": "start",
+                        "in": "path",
+                        "description": "start integer",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    },
+                    {
+                        "name": "end",
+                        "in": "path",
+                        "description": "end integer",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
                     }
-                ]
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns a user token"
+                    },
+                    "422": {
+                        "description": "Validation error/missing parameters",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The provided parameters are incorrect."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     },

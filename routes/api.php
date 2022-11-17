@@ -22,6 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('problems')->group(function () {
     Route::name('problems.')->group(function () {
         Route::post('/first', [\App\Http\Controllers\Api\ProblemController::class, 'first'])->name('first');
+        Route::get('/second/{start}/{end}', [\App\Http\Controllers\Api\ProblemController::class, 'second'])->name('second');
 //        Route::get('/{id}', [\App\Http\Controllers\Api\SeatController::class, 'show'])->name('show');
     });
 });

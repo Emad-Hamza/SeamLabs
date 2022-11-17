@@ -14,7 +14,6 @@ class ProblemController extends Controller
      *     path="/problems/first",
      *     tags={"problems"},
      *     summary="First problem",
-     *     security={ {"sanctum": {} }},
      *     @OA\RequestBody(
      *         required=true,
      *     @OA\JsonContent(
@@ -25,19 +24,9 @@ class ProblemController extends Controller
      *     ),
      *     @OA\Response(
      *         response=200,
-     *         description="Returns a user token",
-     *     @OA\JsonContent(
-     *          @OA\Property(property="token", type="string",example="The provided credentials are incorrect."),
-     *     )
+     *         description="Returns the smallest missing integer",
      *     ),
      *
-     *     @OA\Response(
-     *         response=401,
-     *         description="Returns a error message",
-     *     @OA\JsonContent(
-     *          @OA\Property(property="message", type="string",example="The provided credentials are incorrect."),
-     *     )
-     *     ),
      *
      *     @OA\Response(
      *         response=422,
@@ -94,4 +83,66 @@ class ProblemController extends Controller
 
 
     }
+
+    /**
+     * Second problem
+     * @OA\Get(
+     *     path="/problems/second/{start}/{end}",
+     *     tags={"problems"},
+     *     summary="First problem",
+     *     @OA\Parameter(
+     *         name="start",
+     *         in="path",
+     *         description="start integer",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer",
+     *             format="int64"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="end",
+     *         in="path",
+     *         description="end integer",
+     *         required=true,
+     *         @OA\Schema(
+     *             type="integer",
+     *             format="int64"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="Returns a user token",
+     *     ),
+     *
+     *
+     *     @OA\Response(
+     *         response=422,
+     *         description="Validation error/missing parameters",
+     *     @OA\JsonContent(
+     *          @OA\Property(property="message", type="string",example="The provided parameters are incorrect."),
+     *     )
+     *     ),
+     *
+     * )
+     * @param Request $request
+     * @param $first
+     * @param $second
+     * @return int
+     */
+    public function second(Request $request, int $first, int $second)
+    {
+
+        $counter = 0;
+        for ($i = $first; $i<$second+1; $i++){
+            if (!(str_contains("$i", "5"))){
+                $counter++;
+            }
+        }
+        return $counter;
+
+    }
+
+
+
 }
