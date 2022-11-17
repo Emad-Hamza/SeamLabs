@@ -172,7 +172,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Returns a user token"
+                        "description": "Returns count of all number except numbers that include the digit 5"
                     },
                     "422": {
                         "description": "Validation error/missing parameters",
@@ -215,7 +215,7 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Returns a user token"
+                        "description": "Returns the alphabetic index of the string"
                     },
                     "422": {
                         "description": "Validation error/missing parameters",
@@ -226,6 +226,59 @@
                                         "message": {
                                             "type": "string",
                                             "example": "The provided parameters are incorrect."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/problems/fourth": {
+            "post": {
+                "tags": [
+                    "problems"
+                ],
+                "summary": "Fourth problem",
+                "description": "Fourth problem",
+                "operationId": "86289dd4dadf6d708fe2eb2071e484dd",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "N": {
+                                        "type": "integer",
+                                        "example": "1"
+                                    },
+                                    "Q": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "422": {
+                        "description": "Validation error/missing parameters",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The provided credentials are incorrect."
                                         }
                                     },
                                     "type": "object"

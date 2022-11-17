@@ -24,6 +24,7 @@ Route::prefix('problems')->group(function () {
         Route::post('/first', [\App\Http\Controllers\Api\ProblemController::class, 'first'])->name('first');
         Route::get('/second/{start}/{end}', [\App\Http\Controllers\Api\ProblemController::class, 'second'])->name('second');
         Route::get('/third/{str}', [\App\Http\Controllers\Api\ProblemController::class, 'third'])->name('third');
+        Route::post('/fourth', [\App\Http\Controllers\Api\ProblemController::class, 'fourth'])->name('fourth');
 //        Route::get('/{id}', [\App\Http\Controllers\Api\SeatController::class, 'show'])->name('show');
     });
 });
