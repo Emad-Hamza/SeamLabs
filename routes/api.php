@@ -17,3 +17,20 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::prefix('problems')->group(function () {
+    Route::name('problems.')->group(function () {
+        Route::post('/first', [\App\Http\Controllers\Api\ProblemController::class, 'first'])->name('first');
+//        Route::get('/{id}', [\App\Http\Controllers\Api\SeatController::class, 'show'])->name('show');
+    });
+});
+
+
+Route::prefix('login')->group(function () {
+    Route::name('login.')->group(function () {
+        Route::post('/', [\App\Http\Controllers\Api\LoginController::class, 'login'])->name('');
+    });
+});
+
+
