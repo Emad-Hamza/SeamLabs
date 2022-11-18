@@ -48,7 +48,7 @@ class OrderController extends Controller
      *     ),
      *     @OA\Response(
      *         response=201,
-     *         description="Returns a success message",
+     *         description="Returns the created Delivery Order object.",
      *     @OA\JsonContent(
      *          @OA\Property(property="id", type="integer"),
      *          @OA\Property(property="customer_name", type="string",example="Emad"),
@@ -91,6 +91,7 @@ class OrderController extends Controller
      *         description="Returns a error message",
      *     @OA\JsonContent(
      *          @OA\Property(property="message", type="string",example="validation error"),
+     *          @OA\Property(property="errors", type="object"),
      *     )
      *     ),
      *
@@ -207,7 +208,7 @@ class OrderController extends Controller
      *     ),
      *     @OA\Response(
      *         response=201,
-     *         description="Returns a success message",
+     *         description="Returns the created Dine in Order object.",
      *     @OA\JsonContent(
      *          @OA\Property(property="id", type="integer"),
      *          @OA\Property(property="table_number", type="string",example="Emad"),
@@ -250,6 +251,7 @@ class OrderController extends Controller
      *         description="Returns a error message",
      *     @OA\JsonContent(
      *          @OA\Property(property="message", type="string",example="validation error"),
+     *          @OA\Property(property="errors", type="object"),
      *     )
      *     ),
      *
@@ -289,7 +291,7 @@ class OrderController extends Controller
      *     ),
      *     @OA\Response(
      *         response=201,
-     *         description="Returns a success message",
+     *         description="Returns the created Takeaway Order object.",
      *     @OA\JsonContent(
      *          @OA\Property(property="id", type="integer"),
      *                @OA\Property(
@@ -329,6 +331,7 @@ class OrderController extends Controller
      *         description="Returns a error message",
      *     @OA\JsonContent(
      *          @OA\Property(property="message", type="string",example="validation error"),
+     *          @OA\Property(property="errors", type="object"),
      *     )
      *     ),
      *

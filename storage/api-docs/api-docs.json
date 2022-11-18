@@ -93,7 +93,7 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Returns a success message",
+                        "description": "Returns the created Delivery Order object.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -170,6 +170,9 @@
                                         "message": {
                                             "type": "string",
                                             "example": "validation error"
+                                        },
+                                        "errors": {
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -236,7 +239,7 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Returns a success message",
+                        "description": "Returns the created Dine in Order object.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -313,6 +316,9 @@
                                         "message": {
                                             "type": "string",
                                             "example": "validation error"
+                                        },
+                                        "errors": {
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
@@ -367,7 +373,7 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Returns a success message",
+                        "description": "Returns the created Takeaway Order object.",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -432,6 +438,9 @@
                                         "message": {
                                             "type": "string",
                                             "example": "validation error"
+                                        },
+                                        "errors": {
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
