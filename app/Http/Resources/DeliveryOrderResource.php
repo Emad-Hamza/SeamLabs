@@ -15,14 +15,14 @@ class DeliveryOrderResource extends JsonResource
      */
     public function toArray($request)
     {
-        if ($this instanceof DeliveryOrder) {
 
+        if ($this->resource instanceof DeliveryOrder) {
             $total = $this->itemsTotalPrice() + $this->delivery_fees;
             return [
                 'id' => $this->id,
                 'customer_name' => $this->customer_name,
                 'customer_phone_number' => $this->customer_phone_number,
-                'items' => $this->items(),
+                'items' => ItemResource::collection($this->items()->get()),
                 'items_total_price' => $this->itemsTotalPrice(),
                 'delivery_fees' => $this->delivery_fees,
                 'total' => $total,

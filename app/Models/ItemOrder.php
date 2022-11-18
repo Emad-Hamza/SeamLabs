@@ -9,5 +9,10 @@ class ItemOrder extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+      'item_id',
+      'order_id',
+    ];
+
     protected $table = 'item_order';
 }

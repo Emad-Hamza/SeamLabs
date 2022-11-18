@@ -25,11 +25,12 @@ class Order extends Model
 
     public function items()
     {
-        return $this->belongsToMany(Item::class, 'item_order');
+        return $this->belongsToMany(Item::class, 'item_order', 'order_id');
     }
 
     public function itemsTotalPrice()
     {
+
         $sum = 0;
         foreach ($this->items()->get() as $item){
             if ($item instanceof Item){

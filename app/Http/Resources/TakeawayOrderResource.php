@@ -15,13 +15,13 @@ class TakeawayOrderResource extends JsonResource
      */
     public function toArray($request)
     {
-        if ($this instanceof TakeawayOrder) {
+        if ($this->resource instanceof TakeawayOrder) {
 
-            $total = $this->itemsTotalPrice();
+            $total = $this->resource->itemsTotalPrice();
             return [
                 'id' => $this->id,
-                'items' => $this->items(),
-                'items_total_price' => $this->itemsTotalPrice(),
+                'items' => ItemResource::collection($this->resource->items()->get()),
+                'items_total_price' => $this->resource->itemsTotalPrice(),
                 'total' => $total,
             ];
         }

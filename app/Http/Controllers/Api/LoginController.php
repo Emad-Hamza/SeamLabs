@@ -11,47 +11,6 @@ use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
-    /**
-     * Customer login
-     * @OA\Post(
-     *     path="/login",
-     *     tags={"login"},
-     *     summary="Authenticates customer and returns token.",
-     *
-     *     @OA\RequestBody(
-     *         required=true,
-     *     @OA\JsonContent(
-     *          @OA\Property(property="email", type="email",example="emad.aldin.hamza@gmail.com"),
-     *          @OA\Property(property="password", type="password",example="123456789"),
-     *          @OA\Property(property="device_name", type="string",example="self"),
-     *     )
-     *     ),
-     *     @OA\Response(
-     *         response=200,
-     *         description="Returns a user token",
-     *     @OA\JsonContent(
-     *          @OA\Property(property="token", type="string",example="The provided credentials are incorrect."),
-     *     )
-     *     ),
-     *
-     *     @OA\Response(
-     *         response=401,
-     *         description="Returns a error message",
-     *     @OA\JsonContent(
-     *          @OA\Property(property="message", type="string",example="The provided credentials are incorrect."),
-     *     )
-     *     ),
-     *
-     *     @OA\Response(
-     *         response=422,
-     *         description="Validation error/missing parameters",
-     *     @OA\JsonContent(
-     *          @OA\Property(property="message", type="string",example="The provided credentials are incorrect."),
-     *     )
-     *     ),
-     *
-     * )
-     */
     public function login(Request $request)
     {
 //        $user = new User();

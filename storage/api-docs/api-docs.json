@@ -53,90 +53,6 @@
                 }
             }
         },
-        "/login": {
-            "post": {
-                "tags": [
-                    "login"
-                ],
-                "summary": "Authenticates customer and returns token.",
-                "description": "Customer login",
-                "operationId": "09e51bef15f4fca5d7375d2da57197f6",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "properties": {
-                                    "email": {
-                                        "type": "email",
-                                        "example": "emad.aldin.hamza@gmail.com"
-                                    },
-                                    "password": {
-                                        "type": "password",
-                                        "example": "123456789"
-                                    },
-                                    "device_name": {
-                                        "type": "string",
-                                        "example": "self"
-                                    }
-                                },
-                                "type": "object"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Returns a user token",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "token": {
-                                            "type": "string",
-                                            "example": "The provided credentials are incorrect."
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Returns a error message",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "The provided credentials are incorrect."
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    },
-                    "422": {
-                        "description": "Validation error/missing parameters",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "message": {
-                                            "type": "string",
-                                            "example": "The provided credentials are incorrect."
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/orders/new/delivery": {
             "post": {
                 "tags": [
@@ -237,7 +153,39 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "The provided credentials are incorrect."
+                                            "example": "Missing parameters."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Returns a error message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "validation error"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns a error message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Url does not exist"
                                         }
                                     },
                                     "type": "object"
@@ -348,7 +296,39 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "The provided credentials are incorrect."
+                                            "example": "Missing parameters"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Returns a error message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "validation error"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns a error message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Url does not exist"
                                         }
                                     },
                                     "type": "object"
@@ -435,7 +415,39 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "The provided credentials are incorrect."
+                                            "example": "Missing parameters."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Returns a error message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "validation error"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Returns a error message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Url does not exist"
                                         }
                                     },
                                     "type": "object"

@@ -15,15 +15,15 @@ class DineInOrderResource extends JsonResource
      */
     public function toArray($request)
     {
-        if ($this instanceof DineInOrder) {
+        if ($this->resource instanceof DineInOrder) {
 
-            $total = $this->itemsTotalPrice() + $this->service_charge;
+            $total = $this->resource->itemsTotalPrice() + $this->service_charge;
             return [
                 'id' => $this->id,
                 'table_number' => $this->table_number,
                 'waiter_name' => $this->waiter_name,
-                'items' => $this->items(),
-                'items_total_price' => $this->itemsTotalPrice(),
+                'items' => ItemResource::collection($this->resource->items()->get()),
+                'items_total_price' => $this->resource->itemsTotalPrice(),
                 'service_charge' => $this->service_charge,
                 'total' => $total,
             ];
