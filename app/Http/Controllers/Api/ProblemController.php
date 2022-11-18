@@ -34,7 +34,7 @@ class ProblemController extends Controller
      *         response=422,
      *         description="Validation error/missing parameters",
      *     @OA\JsonContent(
-     *          @OA\Property(property="message", type="string",example="The provided credentials are incorrect."),
+     *          @OA\Property(property="message", type="string",example="The provided parameters are incorrect."),
      *     )
      *     ),
      *
@@ -154,7 +154,7 @@ class ProblemController extends Controller
      *     @OA\Parameter(
      *         name="str",
      *         in="path",
-     *         description="start integer",
+     *         description="alphabetic string",
      *         required=true,
      *         @OA\Schema(
      *             type="string",
@@ -222,7 +222,7 @@ class ProblemController extends Controller
      *         response=422,
      *         description="Validation error/missing parameters",
      *     @OA\JsonContent(
-     *          @OA\Property(property="message", type="string",example="The provided credentials are incorrect."),
+     *          @OA\Property(property="message", type="string",example="The provided parameters are incorrect."),
      *     )
      *     ),
      *
