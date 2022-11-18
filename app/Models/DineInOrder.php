@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Builder;
 
 class DineInOrder extends Order
 {
+    protected $fillable = [
+        'table_number',
+        'service_charge',
+        'waiter_name',
+    ];
+
+
     protected static function boot()
     {
         parent::boot();
