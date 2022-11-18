@@ -78,7 +78,6 @@
                                     "items": {
                                         "type": "array",
                                         "items": {
-                                            "description": "asdasda",
                                             "type": "integer"
                                         }
                                     },
