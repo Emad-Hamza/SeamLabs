@@ -13,6 +13,8 @@ class Order extends Model
     const TYPE_delivery = 'delivery';
     const TYPE_takeaway = 'takeaway';
 
+    protected $table = 'orders';
+
     protected $fillable = [
         'type',
     ];
@@ -24,6 +26,17 @@ class Order extends Model
     public function items()
     {
         return $this->belongsToMany(Item::class, 'item_order');
+    }
+
+    public function itemsTotalPrice()
+    {
+        $sum = 0;
+        foreach ($this->items()->get() as $item){
+            if ($item instanceof Item){
+                $sum+=$item->price;
+            }
+        }
+        return $sum;
     }
 
 }

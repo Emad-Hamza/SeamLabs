@@ -29,6 +29,20 @@ Route::prefix('problems')->group(function () {
     });
 });
 
+Route::prefix('items')->group(function () {
+    Route::name('items.')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Api\ItemController::class, 'index'])->name('index');
+    });
+});
+
+Route::prefix('orders')->group(function () {
+    Route::name('orders.')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Api\OrderController::class, 'index'])->name('index');
+        Route::post('/new/{type}', [\App\Http\Controllers\Api\OrderController::class, 'store'])->name('store');
+    });
+});
+
+
 
 Route::prefix('login')->group(function () {
     Route::name('login.')->group(function () {

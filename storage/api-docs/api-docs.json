@@ -11,6 +11,48 @@
     ],
     "paths": {
         "/": {},
+        "/items": {
+            "get": {
+                "tags": [
+                    "restaurant"
+                ],
+                "summary": "Menu items list",
+                "description": "Display a listing of items.",
+                "operationId": "1ce86fb166d24e47d4923801b137ef2a",
+                "responses": {
+                    "200": {
+                        "description": "Returns list of available items on the menu",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "price": {
+                                                        "type": "number",
+                                                        "format": "double"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/login": {
             "post": {
                 "tags": [
@@ -95,6 +137,315 @@
                 }
             }
         },
+        "/orders/new/delivery": {
+            "post": {
+                "tags": [
+                    "restaurant"
+                ],
+                "summary": "Create a new delivery order",
+                "description": "Create delivery order",
+                "operationId": "8e278ac42be28535e950b1e969f64422",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "customer_name": {
+                                        "type": "string",
+                                        "example": "Emad"
+                                    },
+                                    "customer_phone_number": {
+                                        "type": "string",
+                                        "example": "+01312312123"
+                                    },
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "delivery_fees": {
+                                        "type": "number",
+                                        "format": "float"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Returns a success message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "customer_name": {
+                                            "type": "string",
+                                            "example": "Emad"
+                                        },
+                                        "customer_phone_number": {
+                                            "type": "string",
+                                            "example": "+01312312123"
+                                        },
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "price": {
+                                                        "type": "number",
+                                                        "format": "double"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "items_total_price": {
+                                            "type": "number",
+                                            "format": "float"
+                                        },
+                                        "delivery_fees": {
+                                            "type": "number",
+                                            "format": "float"
+                                        },
+                                        "total": {
+                                            "type": "number",
+                                            "format": "float"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Returns a error message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The provided credentials are incorrect."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/new/dine-in": {
+            "post": {
+                "tags": [
+                    "restaurant"
+                ],
+                "summary": "Create a new dine in order",
+                "description": "Create dine-in order",
+                "operationId": "cfc3522404574dc9fff0086ab02f757f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "table_number": {
+                                        "type": "integer",
+                                        "example": "22"
+                                    },
+                                    "waiter_name": {
+                                        "type": "string",
+                                        "example": "Dina"
+                                    },
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "service_charge": {
+                                        "type": "number",
+                                        "format": "float"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Returns a success message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "table_number": {
+                                            "type": "string",
+                                            "example": "Emad"
+                                        },
+                                        "waiter_name": {
+                                            "type": "string",
+                                            "example": "+01312312123"
+                                        },
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "price": {
+                                                        "type": "number",
+                                                        "format": "double"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "items_total_price": {
+                                            "type": "number",
+                                            "format": "float"
+                                        },
+                                        "service_charge": {
+                                            "type": "number",
+                                            "format": "float"
+                                        },
+                                        "total": {
+                                            "type": "number",
+                                            "format": "float"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Returns a error message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The provided credentials are incorrect."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/orders/new/takeaway": {
+            "post": {
+                "tags": [
+                    "restaurant"
+                ],
+                "summary": "Create a new takeaway order",
+                "description": "Create takeaway order",
+                "operationId": "8b2b1a5d0f88ab5e948a9a023347592f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "items": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Returns a success message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "id": {
+                                            "type": "integer"
+                                        },
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "name": {
+                                                        "type": "string"
+                                                    },
+                                                    "price": {
+                                                        "type": "number",
+                                                        "format": "double"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "items_total_price": {
+                                            "type": "number",
+                                            "format": "float"
+                                        },
+                                        "total": {
+                                            "type": "number",
+                                            "format": "float"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Returns a error message",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The provided credentials are incorrect."
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/problems/first": {
             "post": {
                 "tags": [
@@ -129,7 +480,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "The provided credentials are incorrect."
+                                            "example": "The provided parameters are incorrect."
                                         }
                                     },
                                     "type": "object"
@@ -205,7 +556,7 @@
                     {
                         "name": "str",
                         "in": "path",
-                        "description": "start integer",
+                        "description": "alphabetic string",
                         "required": true,
                         "schema": {
                             "type": "string",
@@ -278,7 +629,7 @@
                                     "properties": {
                                         "message": {
                                             "type": "string",
-                                            "example": "The provided credentials are incorrect."
+                                            "example": "The provided parameters are incorrect."
                                         }
                                     },
                                     "type": "object"

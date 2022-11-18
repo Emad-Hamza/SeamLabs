@@ -9,7 +9,7 @@ class DeliveryOrder extends Order
     protected $fillable = [
         'delivery_fees',
         'customer_name',
-        'customer_address',
+        'customer_phone_number',
     ];
 
     protected static function boot()

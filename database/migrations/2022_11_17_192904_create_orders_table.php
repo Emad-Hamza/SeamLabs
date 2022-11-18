@@ -16,12 +16,12 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->enum('type', \App\Models\Order::getTypes());
-            $table->integer('table_number');
-            $table->decimal('service_charge');
-            $table->string('waiter_name');
-            $table->decimal('delivery_fees');
-            $table->string('customer_name');
-            $table->string('customer_phone_number');
+            $table->integer('table_number')->nullable();
+            $table->decimal('service_charge')->nullable();
+            $table->string('waiter_name')->nullable();
+            $table->decimal('delivery_fees')->nullable();
+            $table->string('customer_name')->nullable();
+            $table->string('customer_phone_number')->nullable();
             $table->timestamps();
         });
     }

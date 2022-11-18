@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\DeliveryOrder;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use function Termwind\renderUsing;
@@ -282,6 +281,13 @@ class ProblemController extends Controller
 
     function is_prime($num)
     {
+//        $delivFeryOrder = new \App\Models\DeliveryOrder;
+//        $deliveryOrder->delivery_fees = 10;
+//        $deliveryOrder->customer_name = 'Ahmed';
+//        $deliveryOrder->customer_phone_number = '+123123213';
+//
+//        $deliveryOrder->save();
+
         if ($num == 1)
             return 0;
         for ($i = 2; $i <= $num/2; $i++)
